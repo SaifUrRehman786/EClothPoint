@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace EClothPoint.Entities
 {
-  public class Product
+  public class Product : Base
     {
         public Category Category { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

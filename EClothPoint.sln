@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EClothPoint.Entities", "ECl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EClothPoint.Services", "EClothPoint.Services\EClothPoint.Services.csproj", "{16E410CD-BF1E-4A74-8B6F-CFE5833722E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EClothPoint.Context", "EClothPoint.Context\EClothPoint.Context.csproj", "{64E90DCA-5D6F-4553-A26E-622D3DAB7EE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EClothPoint.Database", "EClothPoint.Context\EClothPoint.Database.csproj", "{64E90DCA-5D6F-4553-A26E-622D3DAB7EE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
