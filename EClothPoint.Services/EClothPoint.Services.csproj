@@ -51,11 +51,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriesService.cs" />
+    <Compile Include="ProductsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EClothPoint.Context\EClothPoint.Database.csproj">
+      <Project>{64E90DCA-5D6F-4553-A26E-622D3DAB7EE8}</Project>
+      <Name>EClothPoint.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EClothPoint.Entities\EClothPoint.Entities.csproj">
+      <Project>{1A015C0F-3D62-4F48-B22A-3DCF2870EEC7}</Project>
+      <Name>EClothPoint.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

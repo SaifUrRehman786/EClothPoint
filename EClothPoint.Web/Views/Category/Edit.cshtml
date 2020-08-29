@@ -1,0 +1,51 @@
+﻿@model Category
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form id="editCategory">
+
+    <input name="ID" value="@Model.ID" type="hidden" />
+
+    <label>Name</label>
+    <input name="Name" value="@Model.Name" />
+
+    <br />
+
+    <label>Description</label>
+    <input name="Description" value="@Model.Description" />
+
+    <br />
+
+    <button type="button" id="updateBtn">Update</button>
+
+</form>
+
+<script>
+
+        $("#updateBtn").click(function () {
+
+        $.ajax({
+
+            type: 'POST',
+            url: '/Category/Edit',
+            data: $("#editCategory").serialize()
+
+        })
+            .done(function (responce) {
+
+                $("#tableContainer").html(responce)
+                $("#actionContaier").html("")
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+
+                alert("fail");
+            });
+
+        });
+
+</script>

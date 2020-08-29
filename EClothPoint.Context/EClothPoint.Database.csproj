@@ -56,6 +56,10 @@
     <Compile Include="Migrations\202008240616037_initializesd.designer.cs">
       <DependentUpon>202008240616037_initializesd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008251736534_changiongtype.cs" />
+    <Compile Include="Migrations\202008251736534_changiongtype.designer.cs">
+      <DependentUpon>202008251736534_changiongtype.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +78,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202008240616037_initializesd.resx">
       <DependentUpon>202008240616037_initializesd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008251736534_changiongtype.resx">
+      <DependentUpon>202008251736534_changiongtype.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

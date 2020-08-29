@@ -1,0 +1,132 @@
+﻿@model List<Category>
+@{
+    ViewBag.Title = "CategoryTabble";
+}
+
+<div>
+    <form method="post">
+        <input id="searchTxt" name="Search" />
+        <button type="button" id="searchBtn">Search</button>
+    </form>
+    <button type="button" id="newBtn">New</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Products</th>
+            <th>Description</th>
+            <th>Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Name</td>
+                <td>-</td>
+                <td>@category.Description</td>
+                <td>
+                    <button class="editBtn" data-id="@category.ID">Edit</button>
+                    <button class="deleteBtn" data-id="@category.ID">Delete</button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+
+    $("#searchBtn").click(function () {
+
+        var searchValue = $("#searchTxt").val();
+
+        $.ajax({
+            url: '/Category/CategoryTabble',
+            data: {
+                search: searchValue
+            }
+        })
+            .done(function (responce) {
+
+                $("#tableContainer").html(responce)
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+
+                alert("fail");
+            });
+
+    });
+
+
+    $("#newBtn").click(function () {
+
+        $.ajax({
+            url: '/Category/Create'
+        })
+            .done(function (responce) {
+
+                $("#actionContaier").html(responce)
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+
+                alert("fail");
+            });
+
+    });
+
+    $(".editBtn").click(function () {
+        $.ajax({
+
+            url: '/Category/Edit',
+            data: {
+                ID: $(this).attr("data-id")
+            }
+
+        })
+            .done(function (responce) {
+
+                $("#actionContaier").html(responce)
+
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+
+                alert("fail");
+            });
+
+    });
+
+    $(".deleteBtn").click(function () {
+
+        var deleteConfirm = confirm("Are You Sure To Delete This Category.?");
+
+        if (deleteConfirm) {
+            $.ajax({
+                type: 'POST',
+                url: '/Category/Delete',
+                data: {
+                    ID: $(this).attr("data-id")
+                }
+
+            })
+                .done(function (responce) {
+
+                    $("#tableContainer").html(responce)
+
+                })
+                .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+
+                    alert("fail");
+                });
+        }
+
+
+    });
+
+</script>
